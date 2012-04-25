@@ -1,0 +1,312 @@
+/*  Against all odds, though life is so hard
+ *  we carry on, living in the projects -
+ *  broke no lights on. 
+ *  this CSS is brought to you by
+ *  Niket Desai of Wit & Whim.
+ *
+ *
+ *  Wit&Whim c2012 v1.0 04.24    #124
+ */
+ 
+ 
+ /*------------------------------------*\
+ 	TABLE OF CONTENTS
+ \*------------------------------------*/ 
+ /*
+ RESET
+ SITESETUP
+ GLOBALS
+ STYLE
+ */
+ 
+ 
+ /*------------------------------------*\
+ 	$RESET
+ \*------------------------------------*/
+ /*
+ A more considered reset; more of a restart... As per: csswizardry.com/2011/10/reset-restarted
+ */
+ html,body,div,span,applet,object,iframe,
+ h1,h2,h3,h4,h5,h6,p,blockquote,pre,hr,
+ a,abbr,address,cite,code,
+ del,dfn,em,img,ins,kbd,q,s,samp,
+ small,strong,sub,sup,tt,var,
+ b,u,i,
+ dl,dt,dd,ol,ul,li,
+ fieldset,form,label,legend,
+ table,caption,tbody,tfoot,thead,tr,th,td,
+ article,aside,canvas,details,figcaption,figure,
+ footer,header,hgroup,menu,nav,section,summary,
+ time,mark,audio,video{
+ 	margin:0;
+ 	padding:0;
+ }
+ article,aside,details,figcaption,figure,footer,
+ header,hgroup,menu,nav,section{
+ 	display:block;
+ }
+ h1,h2,h3,h4,h5,h6{
+ 	font-size:100%;
+ }
+ table{
+ 	border-collapse:collapse;
+ 	border-spacing:0;
+ }
+ strong,b,mark{
+ 	font-weight:bold;
+ 	font-style:inherit;
+ }
+ em,i,cite,q,address,dfn,var{
+ 	font-style:italic;
+ 	font-weight:inherit;
+ }
+ abbr[title],dfn[title]{
+ 	cursor:help;
+ 	border-bottom:1px dotted;
+ }
+ ins{
+ 	border-bottom:1px solid;
+ }
+ a,u,ins{
+ 	text-decoration:none;
+ }
+ del,s{
+ 	text-decoration:line-through;
+ }
+ pre,code,samp,kbd{
+ 	font-family:monospace;
+ }
+ small{
+ 	font-size:0.75em;
+ }
+ img{
+ 	border:none;
+ 	font-style:italic;
+ }
+ input,
+ select,option,optgroup,
+ textarea{
+ 	font:inherit;
+ }
+ 
+ 
+ /* ============================== */
+ /* ! Layout for desktop version   */
+ /* ============================== */
+/*------------------------------------*\
+	$SITESETUP
+\*------------------------------------*/
+body {
+ background-color: #fafafa;
+ background: #fafafa url('../img/bg.png') repeat left top;
+}
+
+
+/*  FONTS & TEXT  */
+h1, h2, h3, h4, h5, h6, p, li, a, div {
+ font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+ text-align: center;
+}
+
+h1 { 
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  padding: 35px 0;
+  color: #434343;
+  
+  font-weight: 300;
+  font-size: 24px;
+
+}
+
+h3 {
+  padding: 10px 0;
+  color: #434343;
+ 
+  font-weight: 300;
+  font-size: 22px;
+}
+ 
+p {
+  font-weight: 300;  
+}
+
+
+/*  COLOURSCHEME  */
+.grey-bg {
+  background-color: #fafafa;
+}
+
+.white-bg {
+  background-color: #ffffff;
+}
+
+
+/*  SITE STRUCTURES  */
+.float {
+  float: left;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.divider {
+  padding: 15px 0;
+
+  border-bottom: 1px solid #434343;
+  opacity: 0.1;
+}
+
+.whole {
+  width: 100%;
+}
+
+nav ul {
+  float: right;
+}
+
+  nav ul li {
+    list-style: none;
+    float: left;
+  } 
+  
+    nav ul li a {
+      color: #4e4e4e;
+      font-weight: 300;
+    } 
+    
+/*  SPECIAL ELEMENTS  */
+
+.button {
+  
+  /*  Sets up the button look  */
+  background: #87e0fd; /* Old browsers */
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzg3ZTBmZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQwJSIgc3RvcC1jb2xvcj0iIzUzY2JmMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjYzJSIgc3RvcC1jb2xvcj0iIzA1YWJlMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijc0JSIgc3RvcC1jb2xvcj0iIzA1YWJlMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+  background: -moz-linear-gradient(top,  #87e0fd 0%, #53cbf1 40%, #05abe0 63%, #05abe0 74%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#87e0fd), color-stop(40%,#53cbf1), color-stop(63%,#05abe0), color-stop(74%,#05abe0)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #87e0fd 0%,#53cbf1 40%,#05abe0 63%,#05abe0 74%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #87e0fd 0%,#53cbf1 40%,#05abe0 63%,#05abe0 74%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #87e0fd 0%,#53cbf1 40%,#05abe0 63%,#05abe0 74%); /* IE10+ */
+  background: linear-gradient(top,  #87e0fd 0%,#53cbf1 40%,#05abe0 63%,#05abe0 74%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#05abe0',GradientType=0 ); /* IE6-8 */
+  
+  border-radius: 30px;
+  
+  
+  /*  Sets up the button text  */
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  
+  position: relative;
+  top: -50%;
+  padding: 10px 45px;
+  
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  
+}
+
+
+
+/*------------------------------------*\
+	$STYLE
+\*------------------------------------*/ 
+ 
+/*  DIV#HEADER  */
+#header {
+  height: 110px;
+}
+
+a#logo img {
+  padding: 30px 0;
+  margin: 0;
+}
+
+#header nav ul {
+  padding: 30px 0;
+}
+  
+  #header nav ul li {
+    font-size: 16px;
+    padding-left: 15px;
+  }
+
+/* DIV#HERO  */
+.hero {
+  height: 320px;
+  background: #fafafa url('../img/banner-notype.jpg') no-repeat top;
+}
+
+
+/*  DIV#VALUE  */
+
+#value h2 {
+  padding: 50px 0 15px 0;
+}
+
+  #value h2.lead-in {
+    font-size: 26px;
+    padding-top: 90px;
+  }
+
+#value p {
+  font-weight: lighter;
+  font-size: 15px;
+  line-height: 22px;
+  
+  color: #A5A5A5;
+  padding: 20px 20px 55px 20px;
+  
+} 
+
+/*  DIV#PROOF  */
+
+#proof img {
+  padding: 23px 0;  
+}
+
+/*  DIV#FOOTER  */
+
+#footer nav ul {
+  
+}
+
+  #footer nav ul li {
+    font-size: 12px;
+    padding-right: 15px;
+  }
+
+#footer p {
+  font-size: 12px;
+}
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 767px) {
+
+}
+
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+
+/*	.logo {
+		background: url(logo2x.jpg) no-repeat;
+		background-size: 212px 303px;
+	}*/
+
+}
