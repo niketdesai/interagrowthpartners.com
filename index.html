@@ -141,21 +141,27 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 <script>
 
-  $(document).ready(function() {
-  
-    $('.button').hover(
-      function() {
-        $('#left-hand').animate({'left':'+=40px', 'opacity' : '1'}, 1100, 'easeOutQuart');
-        $('#right-hand').animate({'right':'+=40px', 'opacity' : '1'}, 1100, 'easeOutQuart');
-        
-      },
-      function() {
-        // do nothing
-      }
-    );
-  
+  $(window).load(function() {
+    goHands();
   });
-
+  
+  $(document).ready(function() {
+      
+  });
+  
+  
+  //  START FUNCTION: goHands
+  //  This function simply animates the hand images
+  //  to come on screen (from a zero opacity) and move
+  //  them horizontally using the css left property
+  function goHands() {
+    //  Shift left hand
+    $('#left-hand').animate({'left':'+=40px', 'opacity' : '1'}, 1100, 'easeOutQuart');
+    
+    //  Shift right hand
+    $('#right-hand').animate({'right':'+=40px', 'opacity' : '1'}, 1100, 'easeOutQuart');
+  }
+  
 
 </script>
 
