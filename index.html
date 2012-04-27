@@ -29,20 +29,25 @@
   <div class="clear"></div>
 </div>
 <!-- CONTAINER: HERO -->
-<div class="whole hero">
-<div class="container_12">
-  <div class="grid_12">
-    <div class="float">
-      <span class="button">Find Star Talent</span></div>
-    <div class="float">
-      <h1>We focus on building great relationships.</h1>
-      <p>Talk to us more about shit yo!</p>
+<div class="whole hero-bg">
+<div id="hero" class="container_12">
+  <i id="left-hand" class="hand"><img src="img/lefthand.png"></i>
+  <i id="right-hand" class="hand"><img src="img/righthand.png"></i>
+  <div class="grid_3">
+    <div class="hero-buttons">
+      <span class="button">Find Star Talent</span>
     </div>
-    <div class="float">
+  </div>
+  <div class="grid_6">
+    <h1>We focus on building great relationships.</h1>
+    <h2>Intera is a boutique recruiting firm located in San Francisco</h2>
+    <h3>Contact us today to see how we can help you.</h3>
+  </div>
+  <div class="grid_3">
+    <div class="hero-buttons">
       <span class="button">Find a Great Job</span>
     </div>
   </div>
-  <div class="clear"></div>
 </div>
 </div>
 <!-- CONTAINER: VALUEPROPS -->
@@ -107,8 +112,10 @@
   </div>
   <div class="clear"></div>
   <div class="grid_8 prefix_2 suffix_2">
-    <span class="button">Find Star Talent</span>
-    <span class="button">Find a Great Job</span>
+    <div id="footer-cta">
+      <span class="button">Find Star Talent</span>
+      <span class="button">Find a Great Job</span>
+    </div>
   </div>
   <div class="clear"></div>
   <div class="grid_12">
@@ -130,4 +137,27 @@
   <div class="clear"></div>
 </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+<script>
+
+  $(document).ready(function() {
+  
+    $('.button').hover(
+      function() {
+        $('#left-hand').animate({'left':'+=40px', 'opacity' : '1'}, 1100, 'easeOutQuart');
+        $('#right-hand').animate({'right':'+=40px', 'opacity' : '1'}, 1100, 'easeOutQuart');
+        
+      },
+      function() {
+        // do nothing
+      }
+    );
+  
+  });
+
+
+</script>
+
+
 </html>
