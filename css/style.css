@@ -251,7 +251,11 @@ a#logo img {
 /* DIV#HERO  */
 .hero-bg {
   height: 320px;
-  background: #fafafa url('../img/banner-notype.jpg') no-repeat top;
+
+  background-color: #FAFAFA; /* Backup for crap browsers */
+  background: url('../img/banner-notype.jpg') top no-repeat, url('../img/bg.png') repeat;
+  
+  box-shadow: 0 4px 2px -2px gray;  
 }
 
 #hero ul {
@@ -312,11 +316,9 @@ div#hero > div {
 }
 
 #right-hand {
-  right: -150px;
 }
 
 #left-hand {
-  left: -150px;
 }
 
 
@@ -344,7 +346,7 @@ div#hero > div {
 /*  DIV#PROOF  */
 
 #proof img {
-  padding: 23px 0;  
+  padding-top: 1px;
 }
 
 /*  DIV#FOOTER  */
@@ -367,6 +369,7 @@ div#hero > div {
   }
 
 #footer nav ul {
+  padding: 25px 0;
   
 }
 
@@ -377,6 +380,7 @@ div#hero > div {
 
 #footer p {
   font-size: 12px;
+  padding: 25px 0;
 }
 /* ============================= */
 /* ! Layout for mobile version   */

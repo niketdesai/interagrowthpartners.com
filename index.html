@@ -16,7 +16,7 @@
 <div id="header" class="container_12">
   <!-- HEADER AREA -->
   <div class="grid_3">
-    <a href="#" id="logo"><img src="" alt="We're not your average recruiting company" /></a>
+    <a href="#" id="logo"><img src="img/intera_logo.png" alt="We're not your average recruiting company" /></a>
   </div>
   <div class="grid_3 prefix_6">
     <nav>
@@ -61,7 +61,7 @@
     <div class="grid_4 alpha">
       <section>
         <h2>Top-Notch Firms</h2>
-        <img src="img/iconplaceholder.png" />
+        <img src="img/topnotch_icon.png" />
         <p>We work with successful, top-tier
         companies. We have placed many talented individuals in companies 
         backed by the well-known VCs.</p>
@@ -70,7 +70,7 @@
     <div class="grid_4">
       <section>
         <h2>Personal Touch</h2>
-        <img src="img/iconplaceholder.png" />      
+        <img src="img/personal_icon.png" />      
         <p>We work with successful, top-tier
         companies. We have placed many talented individuals in companies 
         backed by the well-known VCs.</p>
@@ -79,7 +79,7 @@
     <div class="grid_4 omega">
       <section>
         <h2>High Calibre Talent</h2>
-        <img src="img/iconplaceholder.png" />      
+        <img src="img/highcaliber_icon.png" />      
         <p>We work with successful, top-tier
         companies. We have placed many talented individuals in companies 
         backed by the well-known VCs.</p>
@@ -93,13 +93,13 @@
 <div class="container_12">
   <div class="grid_12">
     <div class="grid_4 alpha">
-      <img src="img/proofplaceholders.png" />
+      <img src="img/accel_logo.png" />
     </div>
     <div class="grid_4">
-      <img src="img/proofplaceholders.png" />
+      <img src="img/kleiner_logo.png" />
     </div>
     <div class="grid_4 omega">
-      <img src="img/proofplaceholders.png" />
+      <img src="img/sequoia_logo.png" />
     </div>
   </div>
   <div class="clear"></div>
@@ -118,6 +118,7 @@
     </div>
   </div>
   <div class="clear"></div>
+  <div class="divider"></div>
   <div class="grid_12">
     <div class="grid_2 alpha">
       <nav>
@@ -141,12 +142,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 <script>
 
+  
   $(window).load(function() {
     goHands();
   });
   
   $(document).ready(function() {
-      
+    $(window).resize(function() {
+      handsMove(0);
+    });  
+  
   });
   
   
@@ -155,14 +160,37 @@
   //  to come on screen (from a zero opacity) and move
   //  them horizontally using the css left property
   function goHands() {
-    //  Shift left hand
-    $('#left-hand').animate({'left':'+=40px', 'opacity' : '1'}, 1100, 'easeOutQuart');
+    //  Explain this shit
+    handsMove(40);
     
-    //  Shift right hand
-    $('#right-hand').animate({'right':'+=40px', 'opacity' : '1'}, 1100, 'easeOutQuart');
+    //  If window width is <= 1600 we will slide & fade hands in
+    //  otherwise we will just have them fade in (since we don't 
+    //  want hands to go beyond hero area)
+    if($(window).width() <= 1600) {
+      //  Shift left hand
+      $('#left-hand').animate({'left':'+=40px', 'opacity' : '1'}, 1100, 'easeOutQuart');
+      //  Shift right hand
+      $('#right-hand').animate({'right':'+=40px', 'opacity' : '1'}, 1100, 'easeOutQuart');
+    }
+    else {
+      handsMove(0);
+      //  Shift left hand
+      $('#left-hand').animate({'opacity' : '1'}, 1100, 'easeOutQuart');
+      //  Shift right hand
+      $('#right-hand').animate({'opacity' : '1'}, 1100, 'easeOutQuart');
+    }
   }
   
-
+  //  START FUNCTION: handsMove
+  //  What does this do?
+  //  How does it do it?
+  function handsMove(offset) {
+    var w = $(window).width();            //  get current window width
+    var move = 197 + offset;              //  this is the horizontal offset for the hands
+    var hand = (w/2) - 602 - move;        //  determine the left/right offset
+    $('#left-hand').css('left', hand);    //  set the #left-hand left to hand
+    $('#right-hand').css('right', hand);  //  set the #right-hand right to hand
+  }
 </script>
 
 
