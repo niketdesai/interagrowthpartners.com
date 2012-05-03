@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- META DATA -->
   <meta charset="utf-8" />
+  <meta name="author" content="Niket Desai" />
+  <meta name="description" content=" " />
+  <meta name="keywords" content=" " />
+  
   <title>Intera Growth Partners | Not your average recruiting company.</title>
+  
   <!-- CSS INCLUDES -->
   <link rel="stylesheet" href="css/960.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <!-- FONT INCLUDES -->
-  
-  
-  
 </head>
 <body>
+<!-- FORM -->
+<div class="container_12">
+  <div id="popupContact" style="z-index: 100000;">  
+    <a id="popupContactClose">x</a>  
+    <h1>Title of our cool popup, yay!</h1>  
+    <p id="contactArea">  
+        Here we have a simple but interesting sample of our new stuning and smooth popup. As you can see jQuery and CSS does it easy...  
+        <br/><br/>  
+        We can use it for popup-forms and more... just experiment!  
+        <br/><br/>  
+        Press ESCAPE, Click on X (right-top) or Click Out from the popup to close the popup!  
+        <br/><br/>    
+    </p>  
+  </div>  
+  <div id="backgroundPopup"></div>
+</div>
+
 <!-- CONTAINER: HEADER -->
 <div id="header" class="container_12">
   <!-- HEADER AREA -->
@@ -21,8 +40,8 @@
   <div class="grid_3 prefix_6">
     <nav>
       <ul>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact Us</a></li>
+        <li class="disabled" title="Coming Soon!">About</li>
+        <li><a href="/contact" title="Get in touch with us now!">Contact Us</a></li>
       </ul>
     </nav>
   </div>
@@ -35,7 +54,7 @@
   <i id="right-hand" class="hand"><img src="img/righthand.png"></i>
   <div class="grid_3">
     <div class="hero-buttons">
-      <span class="button">Find Star Talent</span>
+      <a href="#something" title="Get your next hire now!"><span class="button">Find Star Talent</span></a>
     </div>
   </div>
   <div class="grid_6">
@@ -45,7 +64,7 @@
   </div>
   <div class="grid_3">
     <div class="hero-buttons">
-      <span class="button">Find a Great Job</span>
+      <a href="#something"><span class="button">Find a Great Job</span></a>
     </div>
   </div>
 </div>
@@ -123,13 +142,13 @@
     <div class="grid_2 alpha">
       <nav>
         <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li class="disabled" title="Coming Soon!">About</a></li>
+          <li><a href="/contact" title="Get in touch now!">Contact</a></li>
         </ul>
       </nav>
     </div>
     <div class="grid_8">
-      <p>Intera 458 Union Street San Francisco CA 94133</p>
+      <p>220 Bush St. San Francisco CA 94031 | (415) 434-4444</p>
     </div>
     <div class="grid_2 omega">
       <p>Intera (c) 2012</p>
@@ -144,15 +163,56 @@
 
   
   $(window).load(function() {
+    //  When the page is loaded we load the hands
     goHands();
   });
   
   $(document).ready(function() {
+    
+    //  Window resize listener
     $(window).resize(function() {
+      //  On window resize, we adjust hand placement
       handsMove(0);
     });  
+    
+    
+    //POPUPSTUFF
+    //LOADING POPUP  
+    //Click the button event!  
+    $('.button').click(function(){  
+        //centering with css  
+        centerPopup();  
+        //load popup  
+        loadPopup();  
+    });  
+  
+    //CLOSING POPUP  
+    //Click the x event!  
+    $("#popupContactClose").click(function(){  
+      disablePopup();  
+    });  
+    
+    //Click out event!  
+    $("#backgroundPopup").click(function(){  
+      disablePopup();  
+    });  
+    
+    //Press Escape event!  
+    $(document).keypress(function(e){  
+      if(e.keyCode==27 && popupStatus==1){  
+      disablePopup();  
+      }  
+    });  
+  
   
   });
+  
+
+//////////////////////////////////////////////////////
+
+//        HANDS RELATED JAVASCRIPT/JQUERY           //
+
+//////////////////////////////////////////////////////
   
   
   //  START FUNCTION: goHands
@@ -160,7 +220,7 @@
   //  to come on screen (from a zero opacity) and move
   //  them horizontally using the css left property
   function goHands() {
-    //  Explain this shit
+    //  Setups up initial location for hands on hero
     handsMove(40);
     
     //  If window width is <= 1600 we will slide & fade hands in
@@ -182,16 +242,91 @@
   }
   
   //  START FUNCTION: handsMove
-  //  What does this do?
-  //  How does it do it?
+  //  handsMove adjusts hands positions based on the window width and
+  //  any additional offset specified as a parameter. It will calculate
+  //  the window width and take into account the hands width before 
+  //  repositioning the hands so they remain relative as window changes.
   function handsMove(offset) {
     var w = $(window).width();            //  get current window width
-    var move = 197 + offset;              //  this is the horizontal offset for the hands
+    var move = 230 + offset;              //  this is the horizontal offset for the hands
     var hand = (w/2) - 602 - move;        //  determine the left/right offset
+
+    //console.log("Window Width: " + w + "; Offest: " + offset + "; Hand = Right/Left:" + hand + ";");
     $('#left-hand').css('left', hand);    //  set the #left-hand left to hand
     $('#right-hand').css('right', hand);  //  set the #right-hand right to hand
   }
-</script>
 
+
+
+//////////////////////////////////////////////////////
+
+//        MODAL CONTACT POPUP JS/JQUERY             //
+
+//////////////////////////////////////////////////////
+
+  //  POPUP Setup: Initial status is 0 for not visible  
+  var popupStatus = 0;
+  
+  //  START FUNCTION: loadPopup
+  //  
+  function loadPopup(){  
+    //loads popup only if it is disabled  
+    if(popupStatus==0){  
+      $("#backgroundPopup").css({"opacity": "0.7"});  
+      $("#backgroundPopup").fadeIn("slow");  
+      $("#popupContact").fadeIn("slow");  
+      popupStatus = 1;  
+    }  
+  }  
+  
+  //disabling popup with jQuery magic!  
+  function disablePopup(){  
+    //disables popup only if it is enabled  
+    if(popupStatus==1){  
+      $("#backgroundPopup").fadeOut("slow");  
+      $("#popupContact").fadeOut("slow");  
+      popupStatus = 0;  
+    }  
+  }  
+  
+  
+  //centering popup  
+  function centerPopup(){  
+    //request data for centering  
+    var windowWidth = document.documentElement.clientWidth;  
+    var windowHeight = document.documentElement.clientHeight;  
+    var popupHeight = $("#popupContact").height();  
+    var popupWidth = $("#popupContact").width();  
+    //centering  
+    $("#popupContact").css({  
+      "position": "absolute",  
+      "top": windowHeight/2-popupHeight/2,  
+      "left": windowWidth/2-popupWidth/2  
+    });  
+    console.log($('#popupContact').css('top'));
+    //only need force for IE6  
+    $("#backgroundPopup").css({"height": windowHeight});  
+    
+  }  
+  
+</script>
+<script type="text/javascript">
+//////////////////////////////////////////////////////
+
+//        GOOGLE ANALYTICS                          //
+
+//////////////////////////////////////////////////////
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31384643-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 
 </html>
