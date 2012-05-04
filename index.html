@@ -3,7 +3,7 @@
 <head>
   <!-- META DATA -->
   <meta charset="utf-8" />
-  <meta name="author" content="Niket Desai" />
+  <meta name="author" content="Niket Desai of Wit & Whim" />
   <meta name="description" content=" " />
   <meta name="keywords" content=" " />
   
@@ -16,17 +16,19 @@
 <body>
 <!-- FORM -->
 <div class="container_12">
-  <div id="popupContact" style="z-index: 100000;">  
+  <div id="popupContact">  
     <a id="popupContactClose">x</a>  
-    <h1>Title of our cool popup, yay!</h1>  
-    <p id="contactArea">  
-        Here we have a simple but interesting sample of our new stuning and smooth popup. As you can see jQuery and CSS does it easy...  
-        <br/><br/>  
-        We can use it for popup-forms and more... just experiment!  
-        <br/><br/>  
-        Press ESCAPE, Click on X (right-top) or Click Out from the popup to close the popup!  
-        <br/><br/>    
-    </p>  
+    <h2>Great, let's get in touch!</h2>
+    <form>
+      <input type="checkbox" name="vehicle" value="Bike" /> I have a bike<br />
+      <input type="checkbox" name="vehicle" value="Car" /> I have a car<br />
+      
+      Name <input type="text" name="name" /><br />
+      Email <input type="text" name="email" /><br />
+      Telephone <input type="text" name="phone" /><br />            
+      
+      <input type="submit" value="Submit" />
+    </form>    
   </div>  
   <div id="backgroundPopup"></div>
 </div>
@@ -167,6 +169,7 @@
     goHands();
   });
   
+  
   $(document).ready(function() {
     
     //  Window resize listener
@@ -268,9 +271,11 @@
   var popupStatus = 0;
   
   //  START FUNCTION: loadPopup
-  //  
+  //  loadPopup will load the modal popup after checking
+  //  that it is not currently loaded.
   function loadPopup(){  
-    //loads popup only if it is disabled  
+    
+    //  loads popup only if it is disabled  
     if(popupStatus==0){  
       $("#backgroundPopup").css({"opacity": "0.7"});  
       $("#backgroundPopup").fadeIn("slow");  
@@ -279,9 +284,12 @@
     }  
   }  
   
-  //disabling popup with jQuery magic!  
+  //  START FUNCTION: disablePopup
+  //  disablePopup, as you'd expect, disables and hides
+  //  the modal popup if it is currently loaded.
   function disablePopup(){  
-    //disables popup only if it is enabled  
+    
+    //  disables popup only if it is enabled  
     if(popupStatus==1){  
       $("#backgroundPopup").fadeOut("slow");  
       $("#popupContact").fadeOut("slow");  
@@ -290,30 +298,35 @@
   }  
   
   
-  //centering popup  
+  //  START FUNCTION: centerPopup
+  //  centerPopup centers the modal popup to the viewing
+  //  window so it keeps focus and is the primary point of 
+  //  interaction with the user.
   function centerPopup(){  
-    //request data for centering  
+    
+    //  request data for centering  
     var windowWidth = document.documentElement.clientWidth;  
     var windowHeight = document.documentElement.clientHeight;  
     var popupHeight = $("#popupContact").height();  
     var popupWidth = $("#popupContact").width();  
-    //centering  
+    
+    //  centering of popup done here
     $("#popupContact").css({  
-      "position": "absolute",  
-      "top": windowHeight/2-popupHeight/2,  
-      "left": windowWidth/2-popupWidth/2  
+      "position": "fixed",  
+      "top": windowHeight / 2 - popupHeight / 2,  
+      "left": windowWidth / 2 - popupWidth / 2  
     });  
     console.log($('#popupContact').css('top'));
-    //only need force for IE6  
-    $("#backgroundPopup").css({"height": windowHeight});  
     
+    //  only need force for IE6  
+    $("#backgroundPopup").css({"height": windowHeight});  
   }  
   
 </script>
 <script type="text/javascript">
 //////////////////////////////////////////////////////
 
-//        GOOGLE ANALYTICS                          //
+//                GOOGLE ANALYTICS                  //
 
 //////////////////////////////////////////////////////
 
