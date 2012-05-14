@@ -2,20 +2,23 @@
 <html lang="en">
 <head>
   <!-- META DATA -->
-  <meta charset="utf-8" />
-  <meta name="author" content="Niket Desai of Wit & Whim" />
+  <meta charset="utf-8" /> 
   <meta name="description" content="Intera Growth Partners is an elite talent recruiting firm based in the Bay Area of California. We specialize in placing high quality talent into compelling jobs that are specific to skills and interests of world-class people." />
   <meta name="keywords" content="Intera Growth Partners Home Website" />
+  <meta name="author" content="Niket Desai of Wit & Whim" />
+  <meta name="design" content="Michael Mizono of Wit & Whim" />
   
+  <!-- SITE DATA -->
   <title>Intera Growth Partners | Not your average recruiting company.</title>
-  
   <link rel="icon" type="image/vnd.microsoft.icon" href="img/favicon.ico" />
+  
   <!-- CSS INCLUDES -->
   <link rel="stylesheet" href="css/960.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<!-- FORM -->
+
+<!-- CONTACT FORM (Initially Hidden)-->
 <div class="container_12">
   <div id="popupContact">  
     <a id="popupContactClose" class="closePopup">x</a>  
@@ -174,12 +177,15 @@
   </div>
   <div class="clear"></div>
 </div>
+
 </body>
+
+<!-- JS INCLUDES // JQUERY CORE + JQUERY UI -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-<script>
 
-  
+<!-- SITE JQUERY + JS -->
+<script>  
   $(window).load(function() {
     //  When the page is loaded we load the hands
     goHands();

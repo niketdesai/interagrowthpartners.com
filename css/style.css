@@ -1,11 +1,11 @@
 /*  Against all odds, though life is so hard
- *  we carry on, living in the projects -
- *  broke no lights on. 
- *  this CSS is brought to you by
+ *  we carry on, living in the projects broke
+ *  no lights on.
+ *
+ *  This CSS is brought to you by
  *  Niket Desai of Wit & Whim.
  *
- *
- *  Wit&Whim c2012 v1.0 04.24    #124
+ *  Wit&Whim c2012 v1.1 05.13    #124
  */
  
  
@@ -15,7 +15,6 @@
  /*
  RESET
  SITESETUP
- GLOBALS
  STYLE
  */
  
@@ -570,9 +569,5 @@ div#hero > div {
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) { 
 
-/*	.logo {
-		background: url(logo2x.jpg) no-repeat;
-		background-size: 212px 303px;
-	}*/
 
 }
