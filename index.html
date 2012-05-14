@@ -17,19 +17,38 @@
 <!-- FORM -->
 <div class="container_12">
   <div id="popupContact">  
-    <a id="popupContactClose">x</a>  
-    <h2>Great, let's get in touch!</h2>
-    <form>
-      <input type="checkbox" name="vehicle" value="Bike" /> I have a bike<br />
-      <input type="checkbox" name="vehicle" value="Car" /> I have a car<br />
-      
-      Name <input type="text" name="name" /><br />
-      Email <input type="text" name="email" /><br />
-      Telephone <input type="text" name="phone" /><br />            
-      
-      <input type="submit" value="Submit" />
-    </form>    
-  </div>  
+    <a id="popupContactClose" class="closePopup">x</a>  
+    <div id="popupStart">
+      <h1>Great, let's get in touch!</h1>      
+      <form action="sendmail.php" 
+            method="POST"
+            enctype="multipart/form-data"
+            name="contact-form"
+            id="contact-form">
+        <fieldset>
+          <label for="contact-firm">I'm looking for:</label>
+          <input type="checkbox" name="recruit" id="contact-recruit" /> Great Talent
+          &nbsp;&nbsp;&nbsp; 
+          <input type="checkbox" name="talent" id="contact-talent" /> A Great Job
+        </fieldset>
+        <fieldset>
+          <label for="contact-name">My Name is:</label>
+          <input type="text" name="name" id="contact-name" placeholder="" required/>  
+        </fieldset>
+        <fieldset>
+          <label for="contact-email">My Email is:</label>
+          <input type="email" name="email" id="contact-email" placeholder="" required=""/>  
+        </fieldset>
+        <fieldset>
+          <input type="submit" value="Submit" class="button" />
+        </fieldset>
+      </form>
+      <div id="success-message">
+        <p>Thanks, we got your contact request and Nora will get back to you really soon!</p><br /><br />
+        <span class="button closePopup">Close</span>
+      </div>
+    </div>
+  </div>
   <div id="backgroundPopup"></div>
 </div>
 
@@ -43,7 +62,7 @@
     <nav>
       <ul>
         <li class="disabled" title="Coming Soon!">About</li>
-        <li><a href="/contact" title="Get in touch with us now!">Contact Us</a></li>
+        <li><a href="#" class="contact" title="Get in touch with us now!" data="both">Contact Us</a></li>
       </ul>
     </nav>
   </div>
@@ -56,7 +75,7 @@
   <i id="right-hand" class="hand"><img src="img/righthand.png"></i>
   <div class="grid_3">
     <div class="hero-buttons">
-      <a href="#something" title="Get your next hire now!"><span class="button">Find Star Talent</span></a>
+      <span class="button contact" data="recruit">Find Star Talent</span>
     </div>
   </div>
   <div class="grid_6">
@@ -66,7 +85,7 @@
   </div>
   <div class="grid_3">
     <div class="hero-buttons">
-      <a href="#something"><span class="button">Find a Great Job</span></a>
+      <span class="button contact" data="talent">Find a Great Job</span>
     </div>
   </div>
 </div>
@@ -74,7 +93,7 @@
 <!-- CONTAINER: VALUEPROPS -->
 <div id="value" class="container_12">
   <div class="grid_12">
-    <h2 class="lead-in">Why you'll like working for us</h2>
+    <h2 class="lead-in">Why you'll like working with us</h2>
     <div class="divider"></div>
   </div>
   <div class="clear"></div>
@@ -83,27 +102,21 @@
       <section>
         <h2>Top-Notch Firms</h2>
         <img src="img/topnotch_icon.png" />
-        <p>We work with successful, top-tier
-        companies. We have placed many talented individuals in companies 
-        backed by the well-known VCs.</p>
+        <p>We work with a wide variety of successful and promising companies to help them find the talent that they need.</p>
       </section>
     </div>
     <div class="grid_4">
       <section>
         <h2>Personal Touch</h2>
         <img src="img/personal_icon.png" />      
-        <p>We work with successful, top-tier
-        companies. We have placed many talented individuals in companies 
-        backed by the well-known VCs.</p>
+        <p>We build long lasting relationships with our all of our clients to help them at all stages of their careers and hiring.</p>
       </section>
     </div>
     <div class="grid_4 omega">
       <section>
-        <h2>High Calibre Talent</h2>
+        <h2>High-Calibre Talent</h2>
         <img src="img/highcaliber_icon.png" />      
-        <p>We work with successful, top-tier
-        companies. We have placed many talented individuals in companies 
-        backed by the well-known VCs.</p>
+        <p>We look to connect with the best and the brightest, finding the most compelling opportunities that fit each person's specific interests and skills.</p>
       </section>
     </div>
   </div>
@@ -134,23 +147,25 @@
   <div class="clear"></div>
   <div class="grid_8 prefix_2 suffix_2">
     <div id="footer-cta">
-      <span class="button">Find Star Talent</span>
-      <span class="button">Find a Great Job</span>
+      <span class="button contact" data="recruit">Find Star Talent</span>
+      <span class="button contact" data="talent">Find a Great Job</span>
     </div>
   </div>
   <div class="clear"></div>
   <div class="divider"></div>
-  <div class="grid_12">
+  <div id="contact-info" class="grid_12">
     <div class="grid_2 alpha">
       <nav>
         <ul>
           <li class="disabled" title="Coming Soon!">About</a></li>
-          <li><a href="/contact" title="Get in touch now!">Contact</a></li>
+          <li><a href="#" class="contact" title="Get in touch now!" data="both">Contact</a></li>
         </ul>
       </nav>
     </div>
     <div class="grid_8">
-      <p>220 Bush St. San Francisco CA 94031 | (415) 434-4444</p>
+      <p>
+        <a href="http://g.co/maps/sv7nq" target="_blank">220 Montgomery St. San Francisco CA 94031</a> | <a href="tel:415-434-4444">(415) 434-4444</a>
+      </p>
     </div>
     <div class="grid_2 omega">
       <p>Intera (c) 2012</p>
@@ -167,6 +182,16 @@
   $(window).load(function() {
     //  When the page is loaded we load the hands
     goHands();
+     
+    //  Check if a success popup needs to be displayed
+    var contactSuccess = getQueryVariable("request");
+    if(contactSuccess === 'success') {
+      centerPopup();
+      loadPopup();
+      successPopup();
+    }
+    
+    
   });
   
   
@@ -182,25 +207,28 @@
     //POPUPSTUFF
     //LOADING POPUP  
     //Click the button event!  
-    $('.button').click(function(){  
+    $('.contact').click(function(){  
+        //Fills popup with relevant data
+        fillPopupData($(this));
         //centering with css  
         centerPopup();  
         //load popup  
-        loadPopup();  
+        loadPopup();
     });  
   
-    //CLOSING POPUP  
-    //Click the x event!  
-    $("#popupContactClose").click(function(){  
+    //  CLOSING POPUP  
+    
+    //  Click the close (X) button  
+    $('.closePopup').click(function(){  
       disablePopup();  
     });  
     
-    //Click out event!  
-    $("#backgroundPopup").click(function(){  
+    //  Clicking outside of the popup
+    $('#backgroundPopup').click(function(){  
       disablePopup();  
     });  
     
-    //Press Escape event!  
+    //  Press Escape will close the popup
     $(document).keypress(function(e){  
       if(e.keyCode==27 && popupStatus==1){  
       disablePopup();  
@@ -268,7 +296,35 @@
 //////////////////////////////////////////////////////
 
   //  POPUP Setup: Initial status is 0 for not visible  
-  var popupStatus = 0;
+  var popupStatus = 0;  
+  
+  //  START FUNCTION: fillPopupData
+  //  fillPopupData will load the modal popup being generated
+  //  with information relevant to how the modal popup was
+  //  initiated (aka what was clicked).
+  function fillPopupData(button) {
+    //  Get data on button clicked
+    var check = $(button).attr('data');
+    
+    //  Clear current Popup Data
+    $('#contact-talent').attr('checked', false);
+    $('#contact-recruit').attr('checked', false);
+    
+    //  Apply the appropriate check boxes as true
+    if (check === 'recruit') {
+      //  Check the 'Looking for Talent' box
+      $('#contact-recruit').attr('checked', true);
+    }
+    else if (check === 'talent') {
+      //  Check the 'Looking for Job' box
+      $('#contact-talent').attr('checked', true);
+    }
+    else {
+      //  Check both boxes
+      $('#contact-recruit').attr('checked', true);
+      $('#contact-talent').attr('checked', true);
+    }  
+  }
   
   //  START FUNCTION: loadPopup
   //  loadPopup will load the modal popup after checking
@@ -280,7 +336,7 @@
       $("#backgroundPopup").css({"opacity": "0.7"});  
       $("#backgroundPopup").fadeIn("slow");  
       $("#popupContact").fadeIn("slow");  
-      popupStatus = 1;  
+      popupStatus = 1;
     }  
   }  
   
@@ -303,7 +359,6 @@
   //  window so it keeps focus and is the primary point of 
   //  interaction with the user.
   function centerPopup(){  
-    
     //  request data for centering  
     var windowWidth = document.documentElement.clientWidth;  
     var windowHeight = document.documentElement.clientHeight;  
@@ -316,14 +371,47 @@
       "top": windowHeight / 2 - popupHeight / 2,  
       "left": windowWidth / 2 - popupWidth / 2  
     });  
-    console.log($('#popupContact').css('top'));
+    //console.log($('#popupContact').css('top'));
     
     //  only need force for IE6  
     $("#backgroundPopup").css({"height": windowHeight});  
   }  
   
-</script>
-<script type="text/javascript">
+  
+  //  START FUNCTION: submitPopup
+  //  Function makes some content changes in the popup
+  //  when it is successfully submitted by the user
+  function successPopup() {
+    // Hide current content
+    $('#contact-form').hide();
+    // Slide in new content
+    $('#success-message').show();
+  }
+
+
+
+//////////////////////////////////////////////////////
+
+//                GENERAL FUNCTIONS                 //
+
+//////////////////////////////////////////////////////
+  
+  //  START FUNCTION: getQueryVariable
+  //  Function takes in a parameter variable name and 
+  //  attempts to parse that from the URI
+  function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+      var pair = vars[i].split("=");
+      if (pair[0] == variable) {
+        return pair[1];
+      }
+    } 
+  }
+
+
+
 //////////////////////////////////////////////////////
 
 //                GOOGLE ANALYTICS                  //

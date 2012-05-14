@@ -430,8 +430,112 @@ div#hero > div {
   padding: 25px 0;
 }
 
+  #footer p a {
+    color: #4e4e4e;
+  }
+
+#contact-info {
+  opacity: 0.7;
+  
+  -webkit-transition:  opacity 0.1s ease-in-out;
+  -moz-transition:     opacity 0.1s ease-in-out;
+  -o-transition:       opacity 0.1s ease-in-out;
+  transition:          opacity 0.1s ease-in-out;
+}
+
+#contact-info:hover {
+  opacity: 1;
+}
+
 
 /*  MODAL POPUP  */
+
+#popupContact{  
+  display:none;  
+  position:fixed;  
+  _position:absolute; /* hack for internet explorer 6*/  
+  height:295px;  
+  width:408px;  
+  background:  rgba(255,255,255, 0.8);
+              /* url('../img/banner-notype.jpg') repeat top left */
+  border:3px solid #cecece;  
+  z-index:1000;  
+  
+  padding:12px;  
+  font-size:15px;
+  color: #4e4e4e;
+  color: rgba(0, 0 ,0, 0.7);
+  text-shadow: 0 1px 1px #fff;
+}  
+
+#popupContactClose{  
+  font-size:20px;  
+  line-height:14px;  
+  right:6px;  
+  top:4px;  
+  position:absolute;  
+  display:block;  
+  cursor: pointer;
+  color: #4e4e4e;
+  color: rgba(0, 0 ,0, 0.7);
+  text-shadow: 0 1px 1px #fff;
+}
+
+  #popupContact h1 {
+    font-size: 26px;
+    color: #4e4e4e;
+    color: rgba(0, 0 ,0, 0.7);
+    text-shadow: 0 1px 1px #fff;
+  }
+
+#contact-form {
+  padding: 20px 0;
+}
+
+  #contact-form fieldset {
+    margin:  0 0 10px 0;
+    border: none;
+  }
+    
+    #contact-form fieldset:last-child {
+      margin: 0;
+    }
+  
+  #contact-form label {
+    display: block;
+    line-height: 1.4;
+    margin: 2px 0;
+    letter-spacing: 1px;
+    
+    color: #4e4e4e;
+    color: rgba(0, 0 ,0, 0.7);
+    text-shadow: 0 1px 1px #fff;
+    
+    font-weight: 400;
+  }
+
+  #contact-form input[type="text"], #contact-form input[type="email"] {
+    width:  215px;
+    padding: 5px 8px;
+    font-size: 1em;
+    color: #4e4e4e;
+    background-image:  -webkit-gradient(linear, 0% 0%, 0% 12%), from(#999), to(#fff));
+    background-image: -moz-linear-gradient(0% 12% 90deg, #fff, #999);
+    border: none;
+    background-color: #fff;
+    -webkit-border-radius:  4px;
+    -moz-border-radius:     4px;
+    -o-border-radius:       4px;
+    border-radius:          4px;
+    text-align: center; 
+  } 
+  
+  #contact-form input[type="submit"] {
+    border: none;
+    padding: 10px 30px;
+  }
+
+
 #backgroundPopup{  
   display:none;  
   position:fixed;  
@@ -445,31 +549,11 @@ div#hero > div {
   z-index:100;  
 }  
 
-#popupContact{  
-  display:none;  
-  position:fixed;  
-  _position:absolute; /* hack for internet explorer 6*/  
-  height:384px;  
-  width:408px;  
-  background: url('../img/bg.png');  
-  border:2px solid #cecece;  
-  z-index:1000;  
-  padding:12px;  
-  font-size:13px;  
-}  
-
-#popupContactClose{  
-  font-size:14px;  
-  line-height:14px;  
-  right:6px;  
-  top:4px;  
-  position:absolute;  
-  color:#6fa5fd;  
-  font-weight:700;  
-  display:block;  
-  cursor: pointer;
-}  
-
+#success-message {
+  display: none;
+  text-align: center;
+  margin: 20px;
+}
 
 /* ============================= */
 /* ! Layout for mobile version   */
