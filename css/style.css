@@ -169,6 +169,10 @@ p {
   width: 100%;
 }
 
+.ninja {
+  display: none;
+}
+
 nav ul {
   float: right;
 }
@@ -188,9 +192,10 @@ nav ul {
       transition:          all 0.3s ease-in-out;
     }
     
-    nav ul li a:hover {
-      border-bottom: 1px solid #4e4e4e;
-    }
+      nav ul li a:hover {
+        border-bottom: 1px solid #4e4e4e;
+      }
+  
 
 .disabled {
   color: #4e4e4e;
@@ -432,6 +437,11 @@ div#hero > div {
   #footer p a {
     color: #4e4e4e;
   }
+  
+    #footer p a:hover {
+      border-bottom: 1px solid #4e4e4e;
+    }
+  
 
 #contact-info {
   opacity: 0.7;
@@ -453,8 +463,8 @@ div#hero > div {
   display:none;  
   position:fixed;  
   _position:absolute; /* hack for internet explorer 6*/  
-  height:295px;  
-  width:408px;  
+  height: 460px;  
+  width: 408px;  
   background:  rgba(255,255,255, 0.8);
               /* url('../img/banner-notype.jpg') repeat top left */
   border:3px solid #cecece;  
@@ -534,6 +544,9 @@ div#hero > div {
     padding: 10px 30px;
   }
 
+  #contact-form p {
+    padding-bottom: 10px;
+  }
 
 #backgroundPopup{  
   display:none;  

@@ -12,6 +12,11 @@
   <title>Intera Growth Partners | Not your average recruiting company.</title>
   <link rel="icon" type="image/vnd.microsoft.icon" href="img/favicon.ico" />
   
+  <!-- IE CATCH: I PITY THE FOOL WHO USE IE -->
+  <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;URL=http://interagrowthpartners.com/ie" />
+  <![endif]-->
+  
   <!-- CSS INCLUDES -->
   <link rel="stylesheet" href="css/960.css" />
   <link rel="stylesheet" href="css/style.css" />
@@ -37,12 +42,23 @@
         </fieldset>
         <fieldset>
           <label for="contact-name">My Name is:</label>
-          <input type="text" name="name" id="contact-name" placeholder="" required/>  
+          <input type="text" name="name" id="contact-name" placeholder="Jane Smith" required/>  
         </fieldset>
         <fieldset>
           <label for="contact-email">My Email is:</label>
-          <input type="email" name="email" id="contact-email" placeholder="" required=""/>  
+          <input type="text" name="email" id="contact-email" placeholder="js@example.com" required/>  
         </fieldset>
+        <fieldset>
+          <label for="contact-phone">My Phone Number is:</label>
+          <input type="text" name="phone" id="contact-phone" placeholder="(555)-555-5555"/>
+        </fieldset>
+        <div id="eng-questions" class="ninja">
+          <fieldset>
+            <label for="contact-resume">My LinkedIn or Github URL is:</label>
+            <input type="text" name="resume" id="contact-resume" placeholder=""/>  
+          </fieldset>
+          <p>Note: We are only able to place candidates that are <span class="strong">already</span> cleared to work in the United States.</p>
+        </div>
         <fieldset>
           <input type="submit" value="Submit" class="button" />
         </fieldset>
@@ -65,7 +81,7 @@
   <div class="grid_3 prefix_6">
     <nav>
       <ul>
-        <li class="disabled" title="Coming Soon!">About</li>
+        <li class="disabled ninja" title="Coming Soon!">About</li>
         <li><a href="#" class="contact" title="Get in touch with us now!" data="both">Contact Us</a></li>
       </ul>
     </nav>
@@ -127,7 +143,7 @@
   <div class="clear"></div>
 </div>
 <!-- CONTAINER: PROOF -->
-<div id="proof" class="whole white-bg">
+<div id="proof" class="whole white-bg ninja">
 <div class="container_12">
   <div class="grid_12">
     <div class="grid_4 alpha">
@@ -161,7 +177,7 @@
     <div class="grid_2 alpha">
       <nav>
         <ul>
-          <li class="disabled" title="Coming Soon!">About</a></li>
+          <li class="disabled ninja" title="Coming Soon!">About</a></li>
           <li><a href="#" class="contact" title="Get in touch now!" data="both">Contact</a></li>
         </ul>
       </nav>
@@ -191,6 +207,8 @@
     goHands();
      
     //  Check if a success popup needs to be displayed
+    $('#success-message').hide();
+    
     var contactSuccess = getQueryVariable("request");
     if(contactSuccess === 'success') {
       centerPopup();
@@ -238,7 +256,8 @@
     //  Press Escape will close the popup
     $(document).keypress(function(e){  
       if(e.keyCode==27 && popupStatus==1){  
-      disablePopup();  
+      disablePopup();
+      console.log("key hit!");
       }  
     });  
   
@@ -259,12 +278,12 @@
   //  them horizontally using the css left property
   function goHands() {
     //  Setups up initial location for hands on hero
-    handsMove(40);
+    handsMove(40);  // Using 40 here since it looks nice at that offset
     
     //  If window width is <= 1600 we will slide & fade hands in
     //  otherwise we will just have them fade in (since we don't 
     //  want hands to go beyond hero area)
-    if($(window).width() <= 1600) {
+    if(!($(window).width() > 1600)) {
       //  Shift left hand
       $('#left-hand').animate({'left':'+=40px', 'opacity' : '1'}, 1100, 'easeOutQuart');
       //  Shift right hand
@@ -326,12 +345,22 @@
       //  Check the 'Looking for Job' box
       $('#contact-talent').attr('checked', true);
     }
-    else {
-      //  Check both boxes
-      $('#contact-recruit').attr('checked', true);
-      $('#contact-talent').attr('checked', true);
-    }  
+    
+    //  Customize popup according to type of person clicking
+    //  (either 'recruit' or 'talent')
+    customizePopup(check);
   }
+  
+  // START FUNCTION: customizePopup
+  function customizePopup(pType) {
+    if(pType === 'talent') {
+      $('div#eng-questions').removeClass("ninja");
+    }
+    else {
+      $('div#eng-questions').addClass("ninja"); 
+    }
+  }
+  
   
   //  START FUNCTION: loadPopup
   //  loadPopup will load the modal popup after checking
@@ -389,13 +418,19 @@
   //  Function makes some content changes in the popup
   //  when it is successfully submitted by the user
   function successPopup() {
+    // Resize popup
+    resizePopup(200);
     // Hide current content
     $('#contact-form').hide();
     // Slide in new content
     $('#success-message').show();
   }
 
-
+  //  START FUNCTION: resizePopup
+  //  Function resizes the height of the popup
+  function resizePopup(h) {
+    $('div#popupContact').css('height', h);
+  }
 
 //////////////////////////////////////////////////////
 
